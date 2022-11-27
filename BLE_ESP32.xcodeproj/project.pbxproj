@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7225E4812273C72A00CA67D6 /* BLE_ESP32.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLE_ESP32.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7225E4812273C72A00CA67D6 /* Controller Kit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Controller Kit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7225E4842273C72A00CA67D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7225E4862273C72A00CA67D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7225E4892273C72A00CA67D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		7225E4822273C72A00CA67D6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7225E4812273C72A00CA67D6 /* BLE_ESP32.app */,
+				7225E4812273C72A00CA67D6 /* Controller Kit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,7 +90,7 @@
 			);
 			name = BLE_ESP32;
 			productName = BLE_Swift_SampleProject;
-			productReference = 7225E4812273C72A00CA67D6 /* BLE_ESP32.app */;
+			productReference = 7225E4812273C72A00CA67D6 /* Controller Kit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -305,7 +305,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gabNovalski.BLE-ESP32";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Controller Kit";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -323,7 +323,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gabNovalski.BLE-ESP32";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Controller Kit";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
