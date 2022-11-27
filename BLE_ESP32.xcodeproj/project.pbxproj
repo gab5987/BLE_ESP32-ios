@@ -14,6 +14,7 @@
 		7225E48F2273C72C00CA67D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7225E48D2273C72C00CA67D6 /* LaunchScreen.storyboard */; };
 		7225E4972273C75300CA67D6 /* SimpleBluetoothIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225E4962273C75300CA67D6 /* SimpleBluetoothIO.swift */; };
 		7225E4992273C76E00CA67D6 /* NSData+int8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225E4982273C76E00CA67D6 /* NSData+int8.swift */; };
+		FA06D9742933F311008E9467 /* SplashIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06D9732933F311008E9467 /* SplashIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7225E4902273C72C00CA67D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7225E4962273C75300CA67D6 /* SimpleBluetoothIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBluetoothIO.swift; sourceTree = "<group>"; };
 		7225E4982273C76E00CA67D6 /* NSData+int8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSData+int8.swift"; sourceTree = "<group>"; };
+		FA06D9732933F311008E9467 /* SplashIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				7225E48B2273C72C00CA67D6 /* Assets.xcassets */,
 				7225E48D2273C72C00CA67D6 /* LaunchScreen.storyboard */,
 				7225E4902273C72C00CA67D6 /* Info.plist */,
+				FA06D9732933F311008E9467 /* SplashIcon.png */,
 			);
 			path = BLE_ESP32;
 			sourceTree = "<group>";
@@ -129,6 +132,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA06D9742933F311008E9467 /* SplashIcon.png in Resources */,
 				7225E48F2273C72C00CA67D6 /* LaunchScreen.storyboard in Resources */,
 				7225E48C2273C72C00CA67D6 /* Assets.xcassets in Resources */,
 				7225E48A2273C72A00CA67D6 /* Main.storyboard in Resources */,
