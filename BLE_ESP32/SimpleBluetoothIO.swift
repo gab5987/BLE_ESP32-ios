@@ -13,16 +13,20 @@ protocol SimpleBluetoothIODelegate: AnyObject {
 
 class SimpleBluetoothIO: NSObject {
     let serviceUUID: String
+    let serviceName: String
     weak var delegate: SimpleBluetoothIODelegate?
     
     var centralManager: CBCentralManager!
     var connectedPeripheral: CBPeripheral?
     var targetService: CBService?
     var writableCharacteristic: CBCharacteristic?
+    var isConnected: Bool? = false
     
-    init(serviceUUID: String, delegate: SimpleBluetoothIODelegate?) {
+    init(serviceUUID: String, delegate: SimpleBluetoothIODelegate?, serviceName: String) {
         self.serviceUUID = serviceUUID
         self.delegate = delegate
+        self.serviceName = serviceName
+        isConnected = false
         
         super.init()
         
@@ -42,18 +46,30 @@ class SimpleBluetoothIO: NSObject {
 }
 
 extension SimpleBluetoothIO: CBCentralManagerDelegate {
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        if central.state == .poweredOn {
+//             centralManager.scanForPeripherals(withServices: [CBUUID(string: serviceUUID)], options: nil)
+            centralManager.scanForPeripherals(withServices: nil, options: nil)
+        }
+    }
+    
+    
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         peripheral.discoverServices(nil)
         if let name = peripheral.name {
             print("Connected! With \(name)")
         }
+        isConnected = true
+    }
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        isConnected = false
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         connectedPeripheral = peripheral
         if let name = peripheral.name {
             print("Discovered \(name)")
-            if peripheral.name == "BLE_DEVICE" {
+            if peripheral.name == serviceName {
                 if let connectedPeripheral = connectedPeripheral {
                     connectedPeripheral.delegate = self
                     centralManager.connect(connectedPeripheral, options: nil)
@@ -62,13 +78,6 @@ extension SimpleBluetoothIO: CBCentralManagerDelegate {
             centralManager.stopScan()
         }
         
-    }
-    
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        if central.state == .poweredOn {
-//             centralManager.scanForPeripherals(withServices: [CBUUID(string: serviceUUID)], options: nil)
-            centralManager.scanForPeripherals(withServices: nil, options: nil)
-        }
     }
 }
 

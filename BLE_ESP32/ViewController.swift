@@ -8,35 +8,42 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var simpleBluetoothIO: SimpleBluetoothIO!
+    var simpleBluetoothIO: SimpleBluetoothIO! // Creates a BLE interface
     
-    @IBOutlet var virtualButton:UISwitch!
-    @IBOutlet weak var ledToggleButton: UIButton!
+    @IBOutlet weak var serviceInputField: UITextField!                   // Holds the device name (Input from User)
+    @IBOutlet weak var creatingAdapterActivity: UIActivityIndicatorView! // Used to create a loading animation
+    @IBAction func connectToAdapter(_ sender: Any) {                     // Function that connects to the device specified in serviceInputField
+        simpleBluetoothIO = SimpleBluetoothIO(
+            serviceUUID: "4fafc201-1fb5-459e-8fcc-c5c9c331914b",
+            delegate: self,
+            serviceName: serviceInputField.text!
+        )
+        createConnection = true
+        showAnim()
+    }
+    
+    var createConnection: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        simpleBluetoothIO = SimpleBluetoothIO(serviceUUID: "4fafc201-1fb5-459e-8fcc-c5c9c331914b", delegate: self)
+        // This listen to any tap on the screen to hide the keyboard
+        view.addGestureRecognizer(
+            UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        )
     }
     
-    @IBAction func ledToggleButtonDown(_ sender: UIButton) {
-        simpleBluetoothIO.writeValue(value:49)
+    func showAnim() {
+        if(createConnection == true) {
+            creatingAdapterActivity.startAnimating()
+        }
+        else {
+            creatingAdapterActivity.stopAnimating()
+        }
     }
-    
-    @IBAction func ledToggleButtonUp(_ sender: UIButton) {
-        simpleBluetoothIO.writeValue(value: 77)
-    }
-    
 }
 
 extension ViewController: SimpleBluetoothIODelegate {
     func simpleBluetoothIO(simpleBluetoothIO: SimpleBluetoothIO, didReceiveValue value: Int8) {
-        if value > 0 {
-            //view.backgroundColor = UIColor.yellow
-            virtualButton.setOn(false, animated: true)
-        } else {
-            //view.backgroundColor = UIColor.black
-            virtualButton.setOn(true, animated: true)
-        }
     }
 }

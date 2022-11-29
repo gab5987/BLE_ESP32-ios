@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7225E4802273C72A00CA67D6"
-               BuildableName = "BLE_ESP32.app"
+               BuildableName = "Controller Kit.app"
                BlueprintName = "BLE_ESP32"
                ReferencedContainer = "container:BLE_ESP32.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7225E4802273C72A00CA67D6"
-            BuildableName = "BLE_ESP32.app"
+            BuildableName = "Controller Kit.app"
             BlueprintName = "BLE_ESP32"
             ReferencedContainer = "container:BLE_ESP32.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7225E4802273C72A00CA67D6"
-            BuildableName = "BLE_ESP32.app"
+            BuildableName = "Controller Kit.app"
             BlueprintName = "BLE_ESP32"
             ReferencedContainer = "container:BLE_ESP32.xcodeproj">
          </BuildableReference>
