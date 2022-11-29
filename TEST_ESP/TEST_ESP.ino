@@ -26,25 +26,25 @@ class MyCallbacks: public BLECharacteristicCallbacks {
     }
     void onWrite(BLECharacteristic *pCharacteristic) {
       std::string value = pCharacteristic->getValue();
-      
       if (value.length() > 0) {
-        Serial.print("*********");
-        Serial.print(value.c_str());
-        Serial.print("-");
-        Serial.print(atoi(value.c_str()));
-        Serial.print("-");
+          //Serial.println(value.c_str);
+//        Serial.print("*********");
+        Serial.println(value.c_str());
+//        Serial.print("-");
+//        Serial.print(atoi(value.c_str()));
+//        Serial.print("-");
         if(atoi(value.c_str())==1)
         {
           digitalWrite(LED_PIN,HIGH);
-          Serial.print("LEDON");
+          //Serial.print("LEDON");
         }
-        else
-        {
-          digitalWrite(LED_PIN,LOW);
-          Serial.print("LEDOFF");
-        }
-        
-        Serial.println("*********");
+//        else
+//        {
+//          digitalWrite(LED_PIN,LOW);
+//          Serial.print("LEDOFF");
+//        }
+//        
+//        Serial.println("*********");
       }
     }
 };

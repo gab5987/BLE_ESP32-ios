@@ -8,7 +8,7 @@
 import Foundation
 
 extension Data {
-    static func dataWithValue(value: Int8) -> Data {
+    static func dataWithValue(value: String) -> Data {
         var variableValue = value
         return Data(buffer: UnsafeBufferPointer(start: &variableValue, count: 1))
     }
