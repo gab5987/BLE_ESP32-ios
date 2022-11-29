@@ -9,7 +9,7 @@ import CoreBluetooth
 
 // This protocol is a blueprint to a function that receives data from the peripheral
 protocol SimpleBluetoothIODelegate: AnyObject {
-    func simpleBluetoothIO(simpleBluetoothIO: SimpleBluetoothIO, didReceiveValue value: Int8)
+    func simpleBluetoothIO(simpleBluetoothIO: SimpleBluetoothIO, didReceiveValue value: String)
 }
 
 class SimpleBluetoothIO: NSObject {
@@ -118,6 +118,6 @@ extension SimpleBluetoothIO: CBPeripheralDelegate {
             return
         }
         
-        delegate.simpleBluetoothIO(simpleBluetoothIO: self, didReceiveValue: data.int8Value())
+        delegate.simpleBluetoothIO(simpleBluetoothIO: self, didReceiveValue: String(data: data, encoding: .utf8) ?? "<MESSAGE_ERROR>")
     }
 }

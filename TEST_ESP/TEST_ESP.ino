@@ -91,8 +91,7 @@ void loop() {
     }
     else
     {
-       int value = 0;
-      pCharacteristic->setValue((uint8_t*)&value, 4);
+      pCharacteristic->setValue("teste off");
         pCharacteristic->notify();
     }
   }
