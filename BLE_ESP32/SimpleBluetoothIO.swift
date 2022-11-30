@@ -28,7 +28,7 @@ class SimpleBluetoothIO: NSObject {
         self.serviceUUID = serviceUUID
         self.delegate = delegate
         self.serviceName = serviceName
-        isConnected = false
+        self.isConnected = false
         
         super.init()
         // Creates a Central Manager
@@ -62,12 +62,12 @@ extension SimpleBluetoothIO: CBCentralManagerDelegate {
         peripheral.discoverServices(nil)
         if let name = peripheral.name {
             print("Connected! With \(name)")
+            self.isConnected = true
         }
-        isConnected = true
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        isConnected = false
+        self.isConnected = false
     }
     
     // Discovers BLE peripherals and connects to the one that its name is equals to the one passed to the contructor before

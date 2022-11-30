@@ -38,11 +38,24 @@ class ViewController: UIViewController {
             delegate: self,
             serviceName: serviceInputField.text!
         )
-        createConnection = true
-        showAnim()
+        creatingAdapterActivity.startAnimating()
+        let _ = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(showWarningMessage), userInfo: nil, repeats: false)
+        while(!gotMaxTime) {
+            if(simpleBluetoothIO.isConnected == true) {
+                theJumper(destination: "contextConnected")
+                break
+            }
+        }
     }
-    
-    var createConnection: Bool = false
+    var gotMaxTime: Bool = false
+    @objc func showWarningMessage() {
+        gotMaxTime = true
+        
+        let alert = UIAlertController(title: "Warning", message: "Connection time expired", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        creatingAdapterActivity.stopAnimating()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,17 +73,12 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "initialPresentationSegue", sender: self)
     }
     
-    @IBAction func buttonTeste(_ sender: Any) {
-        simpleBluetoothIO.writeValue(value: testeInputField.text!)
+    func theJumper(destination: String) {
+        self.performSegue(withIdentifier: destination, sender: self)
     }
     
-    func showAnim() {
-        if(createConnection == true) {
-            creatingAdapterActivity.startAnimating()
-        }
-        else {
-            creatingAdapterActivity.stopAnimating()
-        }
+    @IBAction func buttonTeste(_ sender: Any) {
+        simpleBluetoothIO.writeValue(value: testeInputField.text!)
     }
 }
 
