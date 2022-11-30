@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var simpleBluetoothIO: SimpleBluetoothIO! // Creates a BLE interface
+    var receivedData: String?
     
     // This method creates a gradient color for the background
     func setGradientBackground() {
@@ -32,29 +33,31 @@ class ViewController: UIViewController {
     @IBOutlet weak var testeInputField: UITextField!
     @IBOutlet weak var serviceInputField: UITextField!                   // Holds the device name (Input from User)
     @IBOutlet weak var creatingAdapterActivity: UIActivityIndicatorView! // Used to create a loading animation
+    
     @IBAction func connectToAdapter(_ sender: Any) {                     // Function that connects to the device specified in serviceInputField
+        // This creates the adapter itself
         simpleBluetoothIO = SimpleBluetoothIO(
             serviceUUID: "4fafc201-1fb5-459e-8fcc-c5c9c331914b",
             delegate: self,
             serviceName: serviceInputField.text!
         )
+        // Creates the timer to check to guarantee that the connection is stabilished
         creatingAdapterActivity.startAnimating()
-        let _ = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(showWarningMessage), userInfo: nil, repeats: false)
-        while(!gotMaxTime) {
-            if(simpleBluetoothIO.isConnected == true) {
-                theJumper(destination: "contextConnected")
-                break
-            }
-        }
+        let _ = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(changeViewOrThrowError), userInfo: nil, repeats: false)
     }
-    var gotMaxTime: Bool = false
-    @objc func showWarningMessage() {
-        gotMaxTime = true
-        
-        let alert = UIAlertController(title: "Warning", message: "Connection time expired", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+    @objc func changeViewOrThrowError() {
         creatingAdapterActivity.stopAnimating()
+        if(simpleBluetoothIO.isConnected == true) {    // Shows the contextConnected screen if coneection is stabilished
+            theJumper(destination: "contextConnected")
+        }
+        else {                                         // Or presents a error if dont
+            let alert = UIAlertController(title: "Erro", message: """
+                                                                  O tempo de conexão excedeu o limite
+                                                                  Error 0x42 TLE(Time Limit Exceeded)
+                                                                  """, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
@@ -76,14 +79,10 @@ class ViewController: UIViewController {
     func theJumper(destination: String) {
         self.performSegue(withIdentifier: destination, sender: self)
     }
-    
-    @IBAction func buttonTeste(_ sender: Any) {
-        simpleBluetoothIO.writeValue(value: testeInputField.text!)
-    }
 }
 
 extension ViewController: SimpleBluetoothIODelegate {
     func simpleBluetoothIO(simpleBluetoothIO: SimpleBluetoothIO, didReceiveValue value: String) {
-        print(value)
+        dataGlobal = value
     }
 }

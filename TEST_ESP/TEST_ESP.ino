@@ -76,23 +76,27 @@ void setup() {
   pAdvertising->start();
 }
 int prevVal = LOW;
-void loop() {
-  // put your main code here, to run repeatedly:
- 
-  int currentVal = digitalRead(BTN_PIN);
-  if(currentVal!=prevVal)
-  {
-    prevVal=currentVal;
-    if(currentVal==HIGH)
-    {
-      int value = 10;
-      pCharacteristic->setValue((uint8_t*)&value, 4);
-        pCharacteristic->notify();
-    }
-    else
-    {
-      pCharacteristic->setValue("teste off");
-        pCharacteristic->notify();
-    }
-  }
+
+int temp  = 0;
+void loop() { 
+//  int currentVal = digitalRead(BTN_PIN);
+//  if(currentVal!=prevVal)
+//  {
+//    prevVal=currentVal;
+//    if(currentVal==HIGH)
+//    {
+//      int value = 10;
+//      pCharacteristic->setValue((uint8_t*)&value, 4);
+//        pCharacteristic->notify();
+//    }
+//    else
+//    {
+//      pCharacteristic->setValue("teste off");
+//        pCharacteristic->notify();
+//    }
+//  }
+  temp++;
+  pCharacteristic->setValue(String(temp).c_str());
+   pCharacteristic->notify();
+   delay(1000);
 }
