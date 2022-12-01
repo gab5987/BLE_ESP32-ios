@@ -47,6 +47,9 @@ class SimpleBluetoothIO: NSObject {
         peripheral.writeValue(data, for: characteristic, type: .withResponse)
     }
     
+    func disconnectPeripheral() {
+        centralManager.cancelPeripheralConnection(connectedPeripheral!)
+    }
 }
 
 extension SimpleBluetoothIO: CBCentralManagerDelegate {

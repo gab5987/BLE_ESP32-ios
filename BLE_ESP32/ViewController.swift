@@ -67,13 +67,6 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(
             UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         )
-        // Creates a timer to fire up the segue for the initial pop up view, function declared down on "timeToMoveOn"
-        let _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timeToMoveOn), userInfo: nil, repeats: false)
-    }
-    
-    // Simply performs a segue for the presentation view
-    @objc func timeToMoveOn() {
-        self.performSegue(withIdentifier: "initialPresentationSegue", sender: self)
     }
     
     func theJumper(destination: String) {

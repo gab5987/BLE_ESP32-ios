@@ -14,27 +14,21 @@ class ScrViewController: UIViewController {
     
     // Gets the bluetooth interface from the past controller
     var simpleBluetoothIO = ViewController.simpleBluetoothIO
-    
-    // This method creates a gradient color for the background
-    func setGradientBackground() {
-        let colorTop =  UIColor(red: 227.0/255.0, green: 70.0/255.0, blue: 57.0/255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 225.0/255.0, green: 196.0/255.0, blue: 48.0/255.0, alpha: 1.0).cgColor
-                    
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.frame = self.view.bounds
-                
-        self.view.layer.insertSublayer(gradientLayer, at:0)
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        setGradientBackground()
-        super.viewWillAppear(animated)
-    }
-    
+    var objMainVC = ViewController()
     var receivedData: String!
     
     @IBOutlet weak var buttonScreenSelector: UIButton!
+    
+    @IBAction func unconnectButton(_ sender: UIButton) {
+        let disconectFromPeripheral = {(action: UIAlertAction) in
+            self.performSegue(withIdentifier: "unwindToMain", sender: self)
+        }
+        
+        let alert = UIAlertController(title: "Atenção", message: "Você tem certerteza que deseja desconectar?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: disconectFromPeripheral))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @IBOutlet weak var labelTeste: UILabel!
     @IBOutlet weak var inputTeste: UITextField!
@@ -49,7 +43,7 @@ class ScrViewController: UIViewController {
         
         buttonScreenSelector.showsMenuAsPrimaryAction = true
         buttonScreenSelector.changesSelectionAsPrimaryAction = true
-        
+                
         let menuClosure = {(action: UIAction) in
             //self.update(number: action.title)
         }
