@@ -8,9 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var simpleBluetoothIO: SimpleBluetoothIO! // Creates a BLE interface
     var receivedData: String?
-    
+
     // This method creates a gradient color for the background
     func setGradientBackground() {
         let colorTop =  UIColor(red: 21.0/255.0, green: 147.0/255.0, blue: 195.0/255.0, alpha: 1.0).cgColor
@@ -36,18 +35,14 @@ class ViewController: UIViewController {
     
     @IBAction func connectToAdapter(_ sender: Any) {                     // Function that connects to the device specified in serviceInputField
         // This creates the adapter itself
-        simpleBluetoothIO = SimpleBluetoothIO(
-            serviceUUID: "4fafc201-1fb5-459e-8fcc-c5c9c331914b",
-            delegate: self,
-            serviceName: serviceInputField.text!
-        )
+        let _ = BluetoothDevice(deviceName: serviceInputField.text!)
         // Creates the timer to check to guarantee that the connection is stabilished
         creatingAdapterActivity.startAnimating()
         let _ = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(changeViewOrThrowError), userInfo: nil, repeats: false)
     }
     @objc func changeViewOrThrowError() {
         creatingAdapterActivity.stopAnimating()
-        if(simpleBluetoothIO.isConnected == true) {    // Shows the contextConnected screen if coneection is stabilished
+        if(bluetoothDev.isConnected == true) {    // Shows the contextConnected screen if coneection is stabilished
             theJumper(destination: "contextConnected")
         }
         else {                                         // Or presents a error if dont
@@ -72,10 +67,11 @@ class ViewController: UIViewController {
     func theJumper(destination: String) {
         self.performSegue(withIdentifier: destination, sender: self)
     }
-}
-
-extension ViewController: SimpleBluetoothIODelegate {
-    func simpleBluetoothIO(simpleBluetoothIO: SimpleBluetoothIO, didReceiveValue value: String) {
-        dataGlobal = value
+    
+    @IBAction func jhbjhkbkjhb(_ sender: Any) {
+        sendData(value: "sdkjnfdjbfn")
+    }
+    func sendData(value: String) {
+        bluetoothDev.writeValue(value: value)
     }
 }

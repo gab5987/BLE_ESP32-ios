@@ -13,9 +13,9 @@
 		7225E48C2273C72C00CA67D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7225E48B2273C72C00CA67D6 /* Assets.xcassets */; };
 		7225E48F2273C72C00CA67D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7225E48D2273C72C00CA67D6 /* LaunchScreen.storyboard */; };
 		7225E4972273C75300CA67D6 /* SimpleBluetoothIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225E4962273C75300CA67D6 /* SimpleBluetoothIO.swift */; };
-		7225E4992273C76E00CA67D6 /* NSData+int8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225E4982273C76E00CA67D6 /* NSData+int8.swift */; };
 		FA06D9742933F311008E9467 /* SplashIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06D9732933F311008E9467 /* SplashIcon.png */; };
 		FA06D97829351AA1008E9467 /* ScrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D97729351AA1008E9467 /* ScrViewController.swift */; };
+		FA745DDC293BAE8800A4A7F0 /* BluetoothDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA745DDB293BAE8800A4A7F0 /* BluetoothDevice.swift */; };
 		FA9D800C29379AEB0002C50C /* DataTranscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D800B29379AEB0002C50C /* DataTranscriber.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,9 +28,9 @@
 		7225E48E2273C72C00CA67D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7225E4902273C72C00CA67D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7225E4962273C75300CA67D6 /* SimpleBluetoothIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBluetoothIO.swift; sourceTree = "<group>"; };
-		7225E4982273C76E00CA67D6 /* NSData+int8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSData+int8.swift"; sourceTree = "<group>"; };
 		FA06D9732933F311008E9467 /* SplashIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashIcon.png; sourceTree = "<group>"; };
 		FA06D97729351AA1008E9467 /* ScrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrViewController.swift; sourceTree = "<group>"; };
+		FA745DDB293BAE8800A4A7F0 /* BluetoothDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDevice.swift; sourceTree = "<group>"; };
 		FA9D800B29379AEB0002C50C /* DataTranscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTranscriber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,10 +66,10 @@
 			children = (
 				7225E4842273C72A00CA67D6 /* AppDelegate.swift */,
 				7225E4862273C72A00CA67D6 /* ViewController.swift */,
-				7225E4962273C75300CA67D6 /* SimpleBluetoothIO.swift */,
 				FA06D97729351AA1008E9467 /* ScrViewController.swift */,
-				7225E4982273C76E00CA67D6 /* NSData+int8.swift */,
 				FA9D800B29379AEB0002C50C /* DataTranscriber.swift */,
+				FA745DDB293BAE8800A4A7F0 /* BluetoothDevice.swift */,
+				7225E4962273C75300CA67D6 /* SimpleBluetoothIO.swift */,
 				7225E4882273C72A00CA67D6 /* Main.storyboard */,
 				7225E48B2273C72C00CA67D6 /* Assets.xcassets */,
 				7225E48D2273C72C00CA67D6 /* LaunchScreen.storyboard */,
@@ -155,7 +155,7 @@
 				FA06D97829351AA1008E9467 /* ScrViewController.swift in Sources */,
 				FA9D800C29379AEB0002C50C /* DataTranscriber.swift in Sources */,
 				7225E4972273C75300CA67D6 /* SimpleBluetoothIO.swift in Sources */,
-				7225E4992273C76E00CA67D6 /* NSData+int8.swift in Sources */,
+				FA745DDC293BAE8800A4A7F0 /* BluetoothDevice.swift in Sources */,
 				7225E4872273C72A00CA67D6 /* ViewController.swift in Sources */,
 				7225E4852273C72A00CA67D6 /* AppDelegate.swift in Sources */,
 			);
