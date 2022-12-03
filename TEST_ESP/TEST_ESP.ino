@@ -74,6 +74,9 @@ void setup() {
 
   BLEAdvertising *pAdvertising = pServer->getAdvertising();
   pAdvertising->start();
+
+  pCharacteristic->setValue(String("manda").c_str());
+   pCharacteristic->notify();
 }
 int prevVal = LOW;
 

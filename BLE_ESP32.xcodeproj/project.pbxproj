@@ -15,7 +15,6 @@
 		7225E4972273C75300CA67D6 /* SimpleBluetoothIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225E4962273C75300CA67D6 /* SimpleBluetoothIO.swift */; };
 		FA06D9742933F311008E9467 /* SplashIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA06D9732933F311008E9467 /* SplashIcon.png */; };
 		FA06D97829351AA1008E9467 /* ScrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA06D97729351AA1008E9467 /* ScrViewController.swift */; };
-		FA745DDC293BAE8800A4A7F0 /* BluetoothDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA745DDB293BAE8800A4A7F0 /* BluetoothDevice.swift */; };
 		FA9D800C29379AEB0002C50C /* DataTranscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D800B29379AEB0002C50C /* DataTranscriber.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		7225E4962273C75300CA67D6 /* SimpleBluetoothIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBluetoothIO.swift; sourceTree = "<group>"; };
 		FA06D9732933F311008E9467 /* SplashIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashIcon.png; sourceTree = "<group>"; };
 		FA06D97729351AA1008E9467 /* ScrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrViewController.swift; sourceTree = "<group>"; };
-		FA745DDB293BAE8800A4A7F0 /* BluetoothDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDevice.swift; sourceTree = "<group>"; };
 		FA9D800B29379AEB0002C50C /* DataTranscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTranscriber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,7 +66,6 @@
 				7225E4862273C72A00CA67D6 /* ViewController.swift */,
 				FA06D97729351AA1008E9467 /* ScrViewController.swift */,
 				FA9D800B29379AEB0002C50C /* DataTranscriber.swift */,
-				FA745DDB293BAE8800A4A7F0 /* BluetoothDevice.swift */,
 				7225E4962273C75300CA67D6 /* SimpleBluetoothIO.swift */,
 				7225E4882273C72A00CA67D6 /* Main.storyboard */,
 				7225E48B2273C72C00CA67D6 /* Assets.xcassets */,
@@ -155,7 +152,6 @@
 				FA06D97829351AA1008E9467 /* ScrViewController.swift in Sources */,
 				FA9D800C29379AEB0002C50C /* DataTranscriber.swift in Sources */,
 				7225E4972273C75300CA67D6 /* SimpleBluetoothIO.swift in Sources */,
-				FA745DDC293BAE8800A4A7F0 /* BluetoothDevice.swift in Sources */,
 				7225E4872273C72A00CA67D6 /* ViewController.swift in Sources */,
 				7225E4852273C72A00CA67D6 /* AppDelegate.swift in Sources */,
 			);
