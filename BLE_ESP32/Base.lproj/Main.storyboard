@@ -32,24 +32,6 @@
                                     <action selector="connectToAdapter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r0Y-Jg-5I4"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="v1p-Ep-dAL">
-                                <rect key="frame" x="317" y="253.5" width="20" height="20"/>
-                            </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szz-kW-s9Y">
-                                <rect key="frame" x="77" y="819" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Button"/>
-                                <connections>
-                                    <action selector="buttonTeste:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R14-da-Eyc"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7FQ-nB-wMV">
-                                <rect key="frame" x="191" y="819" width="162" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tc-0p-kgk">
                                 <rect key="frame" x="56.5" y="56" width="269.5" height="63.5"/>
                                 <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="45"/>
@@ -62,10 +44,8 @@
                         <constraints>
                             <constraint firstItem="iag-7h-2mt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="89a-By-YFO"/>
                             <constraint firstItem="wDI-U2-04j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="3.3300000000000001" id="DTw-N2-Pmp"/>
-                            <constraint firstItem="v1p-Ep-dAL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-70" id="HcS-vn-yKA"/>
                             <constraint firstItem="wDI-U2-04j" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-70" id="LKx-Uk-xEi"/>
                             <constraint firstItem="3tc-0p-kgk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="3.8300000000000001" id="ME9-ME-XJ2"/>
-                            <constraint firstItem="v1p-Ep-dAL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="139.5" id="QLl-oq-Vmd"/>
                             <constraint firstItem="iag-7h-2mt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WOi-f8-DeX"/>
                             <constraint firstItem="3tc-0p-kgk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-245.75" id="iDT-W1-ksm"/>
                             <constraint firstItem="iag-7h-2mt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-3.5" id="w2b-Fo-GHl"/>
@@ -73,9 +53,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="rxI-8N-bqr"/>
                     <connections>
-                        <outlet property="creatingAdapterActivity" destination="v1p-Ep-dAL" id="ehj-uX-I6u"/>
                         <outlet property="serviceInputField" destination="wDI-U2-04j" id="tWs-p1-5KG"/>
-                        <outlet property="testeInputField" destination="7FQ-nB-wMV" id="LCp-U4-lH2"/>
                         <segue destination="b8g-uS-l4h" kind="presentation" identifier="initialPresentationSegue" id="A4G-7u-xn5"/>
                         <segue destination="9r8-vQ-6Rt" kind="presentation" identifier="contextConnected" modalPresentationStyle="fullScreen" id="3Ni-2r-YjE"/>
                     </connections>
@@ -113,6 +91,9 @@
                                 <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Definir Ré"/>
+                                <connections>
+                                    <action selector="reButton:" destination="9r8-vQ-6Rt" eventType="touchUpInside" id="FmI-hr-mA4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Início: 21354351.654" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80j-Au-JoE">
                                 <rect key="frame" x="35" y="569" width="137" height="17"/>
@@ -177,6 +158,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Voltar">
                                     <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="goBackwardButton:" destination="9r8-vQ-6Rt" eventType="touchUpInside" id="5QF-5L-s3u"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQn-YW-tNc">
                                 <rect key="frame" x="216" y="360" width="118" height="35"/>
@@ -185,6 +169,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Avançar">
                                     <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="goForwardButton:" destination="9r8-vQ-6Rt" eventType="touchUpInside" id="gvu-Vx-gPs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFr-YZ-nXd">
                                 <rect key="frame" x="33" y="440" width="301" height="35"/>
